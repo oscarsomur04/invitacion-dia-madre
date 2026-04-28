@@ -9,42 +9,45 @@
 body{
   margin:0;
   font-family:'Georgia', serif;
-  background:linear-gradient(135deg,#fce4ec,#f8bbd0);
+  background:linear-gradient(160deg,#fde4ec,#f8bbd0);
   display:flex;
   justify-content:center;
   align-items:center;
-  min-height:100vh;
+  height:100vh;
+  overflow:hidden;
 }
 
-/* TARJETA */
-.card{
-  width:92%;
-  max-width:420px;
-  background:white;
-  border-radius:25px;
+/* CONTENEDOR PRINCIPAL */
+.container{
+  width:100%;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  justify-content:space-between;
   padding:30px 20px;
-  box-shadow:0 15px 35px rgba(0,0,0,0.15);
+  box-sizing:border-box;
   text-align:center;
 }
 
 /* TITULO */
 .titulo{
-  font-size:26px;
-  letter-spacing:2px;
-  margin-bottom:10px;
+  font-size:30px;
+  letter-spacing:3px;
+  margin-top:10px;
 }
 
 /* SUBTITULO */
 .subtitulo{
   font-size:14px;
   color:#b76e79;
-  line-height:1.5;
+  margin-top:10px;
+  line-height:1.6;
 }
 
 /* INFO */
 .info{
-  margin:15px 0;
-  font-size:16px;
+  font-size:17px;
+  margin-top:15px;
   font-weight:500;
 }
 
@@ -52,28 +55,29 @@ body{
 .mensaje{
   font-size:14px;
   color:#555;
+  margin-top:10px;
 }
 
-/* FRASES */
+/* FRASE DESTACADA */
 .fraseBox{
-  margin-top:20px;
-  padding:15px;
-  border-radius:15px;
-  background:#fff0f5;
+  background:rgba(255,255,255,0.9);
+  padding:20px;
+  border-radius:20px;
+  box-shadow:0 10px 25px rgba(0,0,0,0.12);
 }
 
 #frase{
-  font-size:15px;
+  font-size:16px;
   color:#c2185b;
   font-style:italic;
-  min-height:80px;
+  min-height:90px;
 }
 
-/* CORAZONES DECORATIVOS */
+/* DECORACIÓN */
 .corazon{
   position:absolute;
-  width:8px;
-  height:8px;
+  width:10px;
+  height:10px;
   background:#ff4d6d;
   transform:rotate(45deg);
   opacity:0.3;
@@ -84,22 +88,28 @@ body{
 .corazon:after{
   content:"";
   position:absolute;
-  width:8px;
-  height:8px;
+  width:10px;
+  height:10px;
   background:#ff4d6d;
   border-radius:50%;
 }
 
-.corazon:before{ top:-4px;}
-.corazon:after{ left:-4px;}
+.corazon:before{ top:-5px;}
+.corazon:after{ left:-5px;}
 
-.c1{ left:20%; bottom:0;}
-.c2{ left:70%; bottom:0;}
+.c1{ left:10%; bottom:0;}
+.c2{ left:80%; bottom:0;}
 
 @keyframes subir{
   0%{transform:translateY(0); opacity:0;}
   50%{opacity:0.4;}
-  100%{transform:translateY(-300px); opacity:0;}
+  100%{transform:translateY(-400px); opacity:0;}
+}
+
+/* PIE */
+.footer{
+  font-size:12px;
+  color:#999;
 }
 </style>
 </head>
@@ -109,8 +119,9 @@ body{
 <div class="corazon c1"></div>
 <div class="corazon c2"></div>
 
-<div class="card">
+<div class="container">
 
+<div>
 <h1 class="titulo">Día de la Madre</h1>
 
 <p class="subtitulo">
@@ -123,9 +134,14 @@ tiene el honor de invitarles
 <p class="mensaje">
 A una velada especial dedicada a celebrar el amor, la entrega y la grandeza de cada madre.
 </p>
+</div>
 
 <div class="fraseBox">
 <p id="frase"></p>
+</div>
+
+<div class="footer">
+Con cariño y gratitud 💖
 </div>
 
 </div>
@@ -147,7 +163,7 @@ function escribir(){
   if(j < frases[i].length){
     el.textContent += frases[i][j];
     j++;
-    setTimeout(escribir, 40);
+    setTimeout(escribir, 35);
   } else {
     setTimeout(() => {
       el.textContent = "";
