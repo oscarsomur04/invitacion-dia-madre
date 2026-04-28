@@ -9,133 +9,107 @@
 body{
   margin:0;
   font-family:'Georgia', serif;
-  background:linear-gradient(135deg,#fff,#fdeff4);
+  background:linear-gradient(135deg,#fce4ec,#f8bbd0);
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  min-height:100vh;
 }
 
-/* CONTENEDOR */
-.container{
+/* TARJETA */
+.card{
+  width:92%;
+  max-width:420px;
+  background:white;
+  border-radius:25px;
+  padding:30px 20px;
+  box-shadow:0 15px 35px rgba(0,0,0,0.15);
   text-align:center;
-  padding:40px 15px;
-  max-width:500px;
-  margin:auto;
-  position:relative;
 }
 
 /* TITULO */
 .titulo{
-  font-size:28px;
+  font-size:26px;
   letter-spacing:2px;
+  margin-bottom:10px;
 }
 
 /* SUBTITULO */
 .subtitulo{
   font-size:14px;
   color:#b76e79;
-  margin-top:10px;
   line-height:1.5;
 }
 
 /* INFO */
 .info{
-  margin-top:15px;
+  margin:15px 0;
   font-size:16px;
+  font-weight:500;
 }
 
 /* MENSAJE */
 .mensaje{
-  margin-top:10px;
   font-size:14px;
   color:#555;
 }
 
 /* FRASES */
 .fraseBox{
-  margin-top:25px;
-  padding:18px;
+  margin-top:20px;
+  padding:15px;
   border-radius:15px;
-  background:#fff;
-  box-shadow:0 5px 15px rgba(0,0,0,0.08);
+  background:#fff0f5;
 }
 
 #frase{
   font-size:15px;
-  color:#b03060;
+  color:#c2185b;
   font-style:italic;
   min-height:80px;
 }
 
-/* CORAZONES (más pequeños) */
+/* CORAZONES DECORATIVOS */
 .corazon{
   position:absolute;
-  width:10px;
-  height:10px;
+  width:8px;
+  height:8px;
   background:#ff4d6d;
   transform:rotate(45deg);
+  opacity:0.3;
   animation:subir 6s infinite;
-  opacity:0.4;
 }
 
 .corazon:before,
 .corazon:after{
   content:"";
   position:absolute;
-  width:10px;
-  height:10px;
+  width:8px;
+  height:8px;
   background:#ff4d6d;
   border-radius:50%;
 }
 
-.corazon:before{ top:-5px;}
-.corazon:after{ left:-5px;}
+.corazon:before{ top:-4px;}
+.corazon:after{ left:-4px;}
 
-.c1{ left:10%; bottom:-10px;}
-.c2{ left:85%; bottom:-10px;}
+.c1{ left:20%; bottom:0;}
+.c2{ left:70%; bottom:0;}
 
-/* PETALOS SUAVES */
-.petalo{
-  position:absolute;
-  width:8px;
-  height:8px;
-  background:#ffb6c1;
-  border-radius:50%;
-  animation:caer 8s linear infinite;
-  opacity:0.3;
-}
-
-.p1{left:20%;}
-.p2{left:60%; animation-delay:2s;}
-.p3{left:80%; animation-delay:4s;}
-
-/* ANIMACIONES */
 @keyframes subir{
   0%{transform:translateY(0); opacity:0;}
-  30%{opacity:0.4;}
-  100%{transform:translateY(-400px); opacity:0;}
-}
-
-@keyframes caer{
-  0%{transform:translateY(-20px);}
-  100%{transform:translateY(500px);}
-}
-
-/* RESPONSIVE EXTRA */
-@media (max-width:400px){
-  .titulo{font-size:24px;}
-  #frase{font-size:14px;}
+  50%{opacity:0.4;}
+  100%{transform:translateY(-300px); opacity:0;}
 }
 </style>
 </head>
 
 <body>
 
-<div class="container">
-
-<div class="petalo p1"></div>
-<div class="petalo p2"></div>
-<div class="petalo p3"></div>
-
 <div class="corazon c1"></div>
 <div class="corazon c2"></div>
+
+<div class="card">
 
 <h1 class="titulo">Día de la Madre</h1>
 
@@ -173,7 +147,7 @@ function escribir(){
   if(j < frases[i].length){
     el.textContent += frases[i][j];
     j++;
-    setTimeout(escribir, 35);
+    setTimeout(escribir, 40);
   } else {
     setTimeout(() => {
       el.textContent = "";
