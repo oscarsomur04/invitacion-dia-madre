@@ -12,107 +12,116 @@ body{
   background:linear-gradient(135deg,#fff,#fdeff4);
 }
 
+/* CONTENEDOR */
 .container{
   text-align:center;
-  padding:70px 20px;
-  max-width:700px;
+  padding:40px 15px;
+  max-width:500px;
   margin:auto;
   position:relative;
 }
 
+/* TITULO */
 .titulo{
-  font-size:38px;
-  letter-spacing:3px;
-  animation:fadeUp 1.5s ease;
+  font-size:28px;
+  letter-spacing:2px;
 }
 
+/* SUBTITULO */
 .subtitulo{
+  font-size:14px;
   color:#b76e79;
   margin-top:10px;
-  line-height:1.6;
-  animation:fadeUp 2s ease;
+  line-height:1.5;
 }
 
+/* INFO */
 .info{
-  margin-top:20px;
-  font-size:18px;
+  margin-top:15px;
+  font-size:16px;
 }
 
+/* MENSAJE */
 .mensaje{
-  margin-top:15px;
+  margin-top:10px;
+  font-size:14px;
   color:#555;
 }
 
+/* FRASES */
 .fraseBox{
-  margin-top:30px;
-  padding:25px;
-  border-radius:18px;
-  background:rgba(255,255,255,0.9);
-  box-shadow:0 10px 25px rgba(0,0,0,0.08);
+  margin-top:25px;
+  padding:18px;
+  border-radius:15px;
+  background:#fff;
+  box-shadow:0 5px 15px rgba(0,0,0,0.08);
 }
 
 #frase{
-  font-size:18px;
+  font-size:15px;
   color:#b03060;
   font-style:italic;
-  min-height:100px;
+  min-height:80px;
 }
 
-/* ANIMACIONES */
-@keyframes fadeUp{
-  from{opacity:0; transform:translateY(20px);}
-  to{opacity:1; transform:translateY(0);}
-}
-
-/* CORAZONES */
+/* CORAZONES (más pequeños) */
 .corazon{
   position:absolute;
-  width:16px;
-  height:16px;
+  width:10px;
+  height:10px;
   background:#ff4d6d;
   transform:rotate(45deg);
-  animation:subir 7s infinite;
+  animation:subir 6s infinite;
+  opacity:0.4;
 }
 
 .corazon:before,
 .corazon:after{
   content:"";
   position:absolute;
-  width:16px;
-  height:16px;
+  width:10px;
+  height:10px;
   background:#ff4d6d;
   border-radius:50%;
 }
 
-.corazon:before{ top:-8px;}
-.corazon:after{ left:-8px;}
+.corazon:before{ top:-5px;}
+.corazon:after{ left:-5px;}
 
-.c1{ left:15%; bottom:-20px;}
-.c2{ left:80%; bottom:-20px; animation-delay:3s;}
+.c1{ left:10%; bottom:-10px;}
+.c2{ left:85%; bottom:-10px;}
 
-@keyframes subir{
-  0%{transform:translateY(0) rotate(45deg); opacity:0;}
-  30%{opacity:1;}
-  100%{transform:translateY(-600px) rotate(45deg); opacity:0;}
-}
-
-/* PETALOS */
+/* PETALOS SUAVES */
 .petalo{
   position:absolute;
-  width:14px;
-  height:14px;
-  background:radial-gradient(circle,#ffb6c1,#ff69b4);
+  width:8px;
+  height:8px;
+  background:#ffb6c1;
   border-radius:50%;
-  animation:caer 10s linear infinite;
+  animation:caer 8s linear infinite;
+  opacity:0.3;
 }
 
 .p1{left:20%;}
-.p2{left:60%; animation-delay:3s;}
-.p3{left:80%; animation-delay:6s;}
+.p2{left:60%; animation-delay:2s;}
+.p3{left:80%; animation-delay:4s;}
+
+/* ANIMACIONES */
+@keyframes subir{
+  0%{transform:translateY(0); opacity:0;}
+  30%{opacity:0.4;}
+  100%{transform:translateY(-400px); opacity:0;}
+}
 
 @keyframes caer{
-  0%{transform:translateY(-50px);}
-  100%{transform:translateY(700px);}
+  0%{transform:translateY(-20px);}
+  100%{transform:translateY(500px);}
+}
+
+/* RESPONSIVE EXTRA */
+@media (max-width:400px){
+  .titulo{font-size:24px;}
+  #frase{font-size:14px;}
 }
 </style>
 </head>
@@ -152,9 +161,7 @@ const frases = [
 "Madre, tu amor no conoce límites ni condiciones. En cada sacrificio silencioso construyes un mundo lleno de paz y esperanza 💖",
 "Eres el reflejo más puro del amor verdadero, enseñándonos cada día el valor de la entrega y la ternura infinita 🌸",
 "Tu amor transforma lo simple en extraordinario y convierte cada momento en un recuerdo eterno 💐",
-"En tu abrazo encontramos refugio, en tu voz dirección y en tu amor la fuerza para seguir adelante ✨",
-"Madre, eres la raíz que sostiene nuestras vidas y la luz que ilumina cada uno de nuestros caminos 💕",
-"Tu amor es silencioso pero inmenso, invisible pero eterno, y siempre presente en cada paso que damos 🌷"
+"En tu abrazo encontramos refugio, en tu voz dirección y en tu amor la fuerza para seguir adelante ✨"
 ];
 
 let i = 0;
@@ -166,7 +173,7 @@ function escribir(){
   if(j < frases[i].length){
     el.textContent += frases[i][j];
     j++;
-    setTimeout(escribir, 30);
+    setTimeout(escribir, 35);
   } else {
     setTimeout(() => {
       el.textContent = "";
