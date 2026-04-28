@@ -1,97 +1,64 @@
-<div style="font-family: 'Georgia', serif; text-align:center; padding:90px 20px; background:linear-gradient(135deg,#fff,#fdeff4); border-radius:20px; max-width:700px; margin:auto; position:relative; overflow:hidden; box-shadow:0 15px 40px rgba(0,0,0,0.08);">
-
-  <!-- FLORES Y CORAZONES -->
-  <div class="petalo p1"></div>
-  <div class="petalo p2"></div>
-  <div class="petalo p3"></div>
-
-  <div class="corazon c1"></div>
-  <div class="corazon c2"></div>
-
-  <h1 class="titulo">Día de la Madre</h1>
-
-  <p class="subtitulo">
-    El personal masculino del Complejo Educativo Católico Santo Domingo<br>
-    tiene el honor de invitarles
-  </p>
-
-  <p class="info">
-    📅 8 de mayo · ⏰ 5:00 PM
-  </p>
-
-  <p class="mensaje">
-    A una velada especial dedicada a celebrar el amor, la entrega y la grandeza de cada madre.
-  </p>
-
-  <div class="fraseBox">
-    <p id="frase"></p>
-  </div>
-
-</div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Día de la Madre</title>
 
 <style>
+body{
+  margin:0;
+  font-family:'Georgia', serif;
+  background:linear-gradient(135deg,#fff,#fdeff4);
+}
 
-/* TITULO */
+.container{
+  text-align:center;
+  padding:70px 20px;
+  max-width:700px;
+  margin:auto;
+  position:relative;
+}
+
 .titulo{
-  font-size:42px;
-  font-weight:300;
-  letter-spacing:4px;
+  font-size:38px;
+  letter-spacing:3px;
   animation:fadeUp 1.5s ease;
 }
 
-/* SUB */
 .subtitulo{
   color:#b76e79;
-  margin-top:15px;
+  margin-top:10px;
   line-height:1.6;
-  font-size:17px;
   animation:fadeUp 2s ease;
 }
 
-/* INFO */
 .info{
-  margin-top:25px;
-  font-size:20px;
+  margin-top:20px;
+  font-size:18px;
 }
 
-/* MENSAJE */
 .mensaje{
-  margin-top:20px;
+  margin-top:15px;
   color:#555;
 }
 
-/* FRASES */
 .fraseBox{
-  margin-top:40px;
-  padding:30px;
+  margin-top:30px;
+  padding:25px;
   border-radius:18px;
-  background:rgba(255,255,255,0.85);
-  box-shadow:0 15px 35px rgba(0,0,0,0.08);
+  background:rgba(255,255,255,0.9);
+  box-shadow:0 10px 25px rgba(0,0,0,0.08);
 }
 
 #frase{
-  font-size:19px;
+  font-size:18px;
   color:#b03060;
   font-style:italic;
-  font-weight:500;
-  min-height:120px;
+  min-height:100px;
 }
 
-/* ANIMACION TEXTO */
-.escribir{
-  border-right:2px solid #b03060;
-  white-space:nowrap;
-  overflow:hidden;
-  animation:blink 0.7s infinite;
-}
-
-@keyframes blink{
-  0%{border-color:transparent;}
-  50%{border-color:#b03060;}
-  100%{border-color:transparent;}
-}
-
-/* ENTRADA */
+/* ANIMACIONES */
 @keyframes fadeUp{
   from{opacity:0; transform:translateY(20px);}
   to{opacity:1; transform:translateY(0);}
@@ -100,8 +67,8 @@
 /* CORAZONES */
 .corazon{
   position:absolute;
-  width:18px;
-  height:18px;
+  width:16px;
+  height:16px;
   background:#ff4d6d;
   transform:rotate(45deg);
   animation:subir 7s infinite;
@@ -111,47 +78,74 @@
 .corazon:after{
   content:"";
   position:absolute;
-  width:18px;
-  height:18px;
+  width:16px;
+  height:16px;
   background:#ff4d6d;
   border-radius:50%;
 }
 
-.corazon:before{ top:-9px; left:0;}
-.corazon:after{ left:-9px; top:0;}
+.corazon:before{ top:-8px;}
+.corazon:after{ left:-8px;}
 
-.c1{ left:15%; bottom:-30px; animation-delay:0s;}
-.c2{ left:75%; bottom:-30px; animation-delay:3s;}
+.c1{ left:15%; bottom:-20px;}
+.c2{ left:80%; bottom:-20px; animation-delay:3s;}
 
-/* FLORES */
+@keyframes subir{
+  0%{transform:translateY(0) rotate(45deg); opacity:0;}
+  30%{opacity:1;}
+  100%{transform:translateY(-600px) rotate(45deg); opacity:0;}
+}
+
+/* PETALOS */
 .petalo{
   position:absolute;
-  width:20px;
-  height:20px;
+  width:14px;
+  height:14px;
   background:radial-gradient(circle,#ffb6c1,#ff69b4);
-  border-radius:50% 50% 50% 0;
-  transform:rotate(45deg);
-  opacity:0.6;
-  animation:caer 10s infinite linear;
+  border-radius:50%;
+  animation:caer 10s linear infinite;
 }
 
-.p1{ left:20%; top:-20px;}
-.p2{ left:60%; top:-40px; animation-delay:3s;}
-.p3{ left:80%; top:-30px; animation-delay:6s;}
-
-/* MOVIMIENTO */
-@keyframes subir{
-  0%{ transform:translateY(0) rotate(45deg); opacity:0;}
-  30%{ opacity:1;}
-  100%{ transform:translateY(-600px) rotate(45deg); opacity:0;}
-}
+.p1{left:20%;}
+.p2{left:60%; animation-delay:3s;}
+.p3{left:80%; animation-delay:6s;}
 
 @keyframes caer{
-  0%{ transform:translateY(0) rotate(45deg);}
-  100%{ transform:translateY(700px) rotate(360deg);}
+  0%{transform:translateY(-50px);}
+  100%{transform:translateY(700px);}
 }
-
 </style>
+</head>
+
+<body>
+
+<div class="container">
+
+<div class="petalo p1"></div>
+<div class="petalo p2"></div>
+<div class="petalo p3"></div>
+
+<div class="corazon c1"></div>
+<div class="corazon c2"></div>
+
+<h1 class="titulo">Día de la Madre</h1>
+
+<p class="subtitulo">
+El personal masculino del Complejo Educativo Católico Santo Domingo<br>
+tiene el honor de invitarles
+</p>
+
+<p class="info">📅 8 de mayo · ⏰ 5:00 PM</p>
+
+<p class="mensaje">
+A una velada especial dedicada a celebrar el amor, la entrega y la grandeza de cada madre.
+</p>
+
+<div class="fraseBox">
+<p id="frase"></p>
+</div>
+
+</div>
 
 <script>
 const frases = [
@@ -160,39 +154,31 @@ const frases = [
 "Tu amor transforma lo simple en extraordinario y convierte cada momento en un recuerdo eterno 💐",
 "En tu abrazo encontramos refugio, en tu voz dirección y en tu amor la fuerza para seguir adelante ✨",
 "Madre, eres la raíz que sostiene nuestras vidas y la luz que ilumina cada uno de nuestros caminos 💕",
-"Tu amor es silencioso pero inmenso, invisible pero eterno, y siempre presente en cada paso que damos 🌷",
-"Gracias por enseñarnos que el amor verdadero no se dice, se demuestra cada día con acciones 💖",
-"Tu corazón es tan grande que siempre hay espacio para dar más amor, incluso cuando parece imposible 🌸",
-"Todo lo que somos tiene una parte de ti, porque tu amor ha sido nuestra base y nuestra inspiración 💐",
-"Madre, eres el hogar al que siempre queremos volver, sin importar dónde estemos ✨"
+"Tu amor es silencioso pero inmenso, invisible pero eterno, y siempre presente en cada paso que damos 🌷"
 ];
 
 let i = 0;
 let j = 0;
-let textoActual = "";
-let escribiendo = true;
 
-function escribirTexto(){
-  const fraseElemento = document.getElementById("frase");
+function escribir(){
+  const el = document.getElementById("frase");
 
-  if(escribiendo){
-    if(j < frases[i].length){
-      textoActual += frases[i].charAt(j);
-      fraseElemento.innerHTML = textoActual + "|";
-      j++;
-      setTimeout(escribirTexto, 40);
-    } else {
-      escribiendo = false;
-      setTimeout(escribirTexto, 2500);
-    }
+  if(j < frases[i].length){
+    el.textContent += frases[i][j];
+    j++;
+    setTimeout(escribir, 30);
   } else {
-    textoActual = "";
-    j = 0;
-    i = (i + 1) % frases.length;
-    escribiendo = true;
-    setTimeout(escribirTexto, 500);
+    setTimeout(() => {
+      el.textContent = "";
+      j = 0;
+      i = (i + 1) % frases.length;
+      escribir();
+    }, 2500);
   }
 }
 
-escribirTexto();
+window.onload = escribir;
 </script>
+
+</body>
+</html>
